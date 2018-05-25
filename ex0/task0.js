@@ -1,16 +1,27 @@
 function getStats(data) {
-	var a;
-	var b;
-	var c;	
-	a = Math.max.apply(null, data);
-	b = Math.min.apply(null, data);
+	var max = data[0];
+	var min = data[0];
+	var ser = 0;
+	var value;
+	for(var i = 0; i < data.length; i++){
+		if(max < data[i]){
+			max = data[i]
+		}
+		if(min > data[i]){
+			min = data[i]
+		}
+			ser += data[i]
+		}	
+	if(data.length == 0){
+			ser = 0;
+			min = 0;
+			max = 0;
+	} 
+	else{
+		ser /= data.length;
+	}
 	
-	for(var i = 0; i < data.length; i++)
-		с += data[i];
-	
-	return [a, b, с];
-	
-	
+	return [max, min, ser];
 }
 
 function assertEqualArrays(expectedVal, actualVal, message) {

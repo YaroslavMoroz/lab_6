@@ -1,7 +1,11 @@
 function getTransposed(matrix1) {
-	const transpose = matrix => matrix[0].map((col, i) => matrix.map(row => row[i]));
-	const transposedMatrix = transpose(matrix1);
-	return transposedMatrix;
+
+	var AT = [];
+    for (var i = 0; i < matrix1[0].length; i++){ 
+		AT[i] = [];
+		for (var j = 0; j < matrix1.length; j++) AT[i][j] = matrix1[j][i];
+     }
+    return AT;
 }
 
 function assertEqualMatrix(expectedVal, actualVal, message) {

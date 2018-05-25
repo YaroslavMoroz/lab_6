@@ -1,15 +1,14 @@
-function mergeObjects(obj1) {
-	var x={};
-	for (var i = 0; i < arguments.length; i++) {
-		for (var key in obj1){
-			if (arguments[i].key==arguments[i+1].key){
-				x.key.push(arguments[i].key);
-			}
-		}
-	}
-	return {};
+function mergeObjects(object) {
+    var result = {};
+    for(var obj of object){
+        for (var key in obj) {
+            if (!(key in result))
+                result[key] = [];
+            result[key].push(obj[key]);
+        }
+    }
+    return result;
 }
-
 
 function assertEqualObjects(expectedVal, actualVal, message) {
 	var compareResult = compareObjects(expectedVal, actualVal);
